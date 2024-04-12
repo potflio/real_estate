@@ -69,7 +69,7 @@ DATABASES = {
         'NAME': 'joker1406$real_estate',
         'USER': 'joker1406',
         'PASSWORD': 'real_estate',
-        'HOST': 'localhost',
+        'HOST': 'joker1406.mysql.pythonanywhere-services.com',
         'PORT': '3306', 
     }
 }
