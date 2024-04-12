@@ -1,0 +1,323 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <form action="" class="form">
+       <!-- Property Details Start -->
+<h4 class="alert alert-primary">Property Details</h4>
+<hr>
+<!-- <div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="apartmentType" class="form-label">Apartment Type <span class="text-danger">*</span></label>
+            <select name="apartmentType" id="apartmentType" class="form-control">
+                <option selected disabled>Select</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Gated Community Villa">Gated Community Villa</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="apartmentName" class="form-label">Apartment Name <span class="text-danger">(Please select from dropdown)*</span></label>
+            <select name="apartmentName" id="apartmentName" class="form-control">
+                <option value="">eg</option>
+            </select>
+        </div>
+    </div>
+</div> -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="bhkType" class="form-label">BHK Type <span class="text-danger">*</span></label>
+            <select name="bhkType" id="bhkType" class="form-control">
+                <option selected disabled>Select</option>
+                <option value="1 RK">1 RK</option>
+                <option value="1 BHK">1 BHK</option>
+                <option value="2 BHK">2 BHK</option>
+                <option value="3 BHK">3 BHK</option>
+                <option value="4 BH">4 BHK</option>
+                <option value="4+ BH">4+ BHK</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="floor" class="form-label">Floor <span class="text-danger">*</span></label>
+            <select name="floor" id="floor" class="form-control">
+                <option selected disabled>Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="9+">9+</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="totalFloor" class="form-label">Total Floor<span class="text-danger">*</span></label>
+            <select name="totalFloor" id="totalFloor" class="form-control">
+                <option selected disabled>Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="9+">9+</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="propertyAge" class="form-label">Property Age<span class="text-danger">*</span></label>
+            <select name="propertyAge" id="propertyAge" class="form-control">
+                <option selected disabled>Select</option>
+                <option value="Less than a Year">Less than a Year</option>
+                <option value="1 to 3 Years">1 to 3 Years</option>
+                <option value="3 to 5 Years">3 to 5 Years</option>
+                <option value="5 to 10 Years">5 to 10 Years</option>
+                <option value="More than 10 Years">More than 10 Years</option>
+            </select>
+        </div>
+    </div>
+    <!-- <div class="col-md-4">
+        <div class="form-group">
+            <label for="facing" class="form-label">Facing</label>
+            <select name="facing" id="facing" class="form-control">
+                <option selected disabled>Select Direction</option>
+                <option value="North">North</option>                
+            </select>
+        </div>
+    </div> -->
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="builtUpArea" class="form-label">Built Up Area <span class="text-danger">*</span></label>
+            <div class="input-group">
+                <input type="text" id="builtUpArea" class="form-control" placeholder="Built Up Area" aria-label="Built Up Area" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2">ft.</span>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<!-- Property Details End -->
+
+<!-- Locality Start -->
+<h4 class="alert alert-primary">Locality Details</h4>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="city" class="form-label">City <span class="text-danger">*</span></label>
+            <select name="city" id="city" class="form-control">
+                <option selected disabled>Select</option>
+                <option value="Thoothukudi">Thoothukudi</option>
+                <option value="Tirunelveli">Tirunelveli</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="locality" class="form-label">Locality <span class="text-danger">*</span></label>
+            <input type="search" name="locality" id="locality" class="form-control" placeholder="Enter location/society name">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="landmark" class="form-label">Landmark / Street <span class="text-danger">*</span></label>
+            <input type="search" name="landmark" id="landmark" class="form-control" placeholder="E.g.Evergreen Street">
+        </div>
+    </div>
+</div>
+<hr>
+<!-- Locality Details End -->
+
+
+        <!-- Rental Details Start -->
+
+
+            <h4 class="alert alert-primary">Rental Details</h4>
+            <h5 class="alert alert-warning">Provide rental details about your property</h5>
+ 
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="rentalType" class="form-label">Property available for</label>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="rentalType" id="rentalOnly" class="form-check-input" value="rent" checked>
+                                <label for="rentalOnly" class="form-check-label">Only rent</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="rentalType" id="leaseOnly" class="form-check-input" value="lease">
+                                <label for="leaseOnly" class="form-check-label">Only lease</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="expectedRent" class="form-label">Expected Rent <span class="text-danger">*</span></label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-currency-rupee"></i></span>
+                                <input type="text" class="form-control" id="expectedRent" aria-label="Amount (to the nearest rupees)" placeholder="Enter Amount">
+                                <span class="input-group-text">/Month</span>
+                            </div>
+                            <!-- <div class="form-check">
+                                <input type="checkbox" name="rentNegotiable" id="rentNegotiable" class="form-check-input">
+                                <label for="rentNegotiable" class="form-check-label">Rent Negotiable</label>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="expectedDeposit" class="form-label">Expected Deposit <span class="text-danger">*</span></label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-currency-rupee"></i></span>
+                                <input type="text" class="form-control" id="expectedDeposit" aria-label="Amount (to the nearest rupee)" placeholder="Enter Amount">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="expectedLeaseAmount" class="form-label">Expected Lease Amount  <span class="text-danger">*</span></label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-currency-rupee"></i></span>
+                                <input type="text" class="form-control" id="expectedLeaseAmount" aria-label="Amount (to the nearest rupees)" placeholder="Enter Amount">
+                            </div>
+                            <!-- <div class="form-check">
+                                <input type="checkbox" name="leaseNegotiable" id="leaseNegotiable" class="form-check-input">
+                                <label for="leaseNegotiable" class="form-check-label">Lease Negotiable</label>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="monthlyMaintenance" class="form-label">Monthly Maintenance</label>
+                            <select name="monthlyMaintenance" id="monthlyMaintenance" class="form-control">
+                                <option selected disabled>Select</option>
+                                <option value="MaintenanceInclude">Maintenance Include</option>
+                                <option value="MaintenanceExtra">Maintenance Extra</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="availableFrom" class="form-label">Available From  <span class="text-danger">*</span></label>
+                            <input type="date" name="availableFrom" id="availableFrom" class="form-control">
+                        </div>
+                    </div>
+                </div> -->
+        
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="form-label">Preferred Tenants<span class="text-danger">*</span></label>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input" id="anyone">
+                                <label class="form-check-label" for="anyone">Anyone</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input" id="family" value="Family">
+                                <label class="form-check-label" for="family">Family</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input" id="bachelorFemale" value="bachelorFemale">
+                                <label class="form-check-label" for="bachelorFemale">Bachelor Female </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input" id="bachelorMale" value="bachelorMale">
+                                <label class="form-check-label" for="bachelorMale">Bachelor Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input" id="company" value="Company">
+                                <label class="form-check-label" for="company">Company</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="furnishing" class="form-label">Furnishing<span class="text-danger">*</span></label>
+                            <select name="furnishing" id="furnishing" class="form-control">
+                                <option selected disabled>Select</option>
+                                <option value="FullyFurnished">Fully furnished</option>
+                                <option value="SemiFurnished">Semi-furnished</option>
+                                <option value="Unfurnished">Unfurnished</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="parking" class="form-label">Parking <span class="text-danger">*</span></label>
+                            <select name="parking" id="parking" class="form-control">
+                                <option selected disabled>Select</option>
+                                <option value="Bike">Bike</option>
+                                <option value="Car">Car</option>
+                                <option value="Both">Both</option>
+                                <option value="None">None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea name="description" id="description" cols="30" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" id="residential_rent_create" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+        
+
+        <!-- Rental Details End -->
+
+        <!-- Amenities Start -->
+
+        <!-- <h4 class="alert alert-primary">Amenities</h4>
+        <h5 class="alert alert-warning">Provide additional details about your property to get maximum visibilty</h5>
+
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+        </div> -->
+        
+    </form>
+</div>
+<script src="{% static 'js/residential_rent_form.js' %}"></script>
+{% endblock %}

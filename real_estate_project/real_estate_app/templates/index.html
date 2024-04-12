@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for member in data %}
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/land.png' %}" alt="Landmark Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ member.landmark }}</h5>
+                    <p class="card-text">Some quick example text related to {{ member.landmark }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ member.description }}</li>
+                    <li class="list-group-item">Another item</li>
+                    <li class="list-group-item">Yet another item</li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
