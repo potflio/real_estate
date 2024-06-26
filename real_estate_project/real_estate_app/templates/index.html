@@ -3,23 +3,25 @@
 
 {% block content %}
 <div class="container">
+    <h4 class="alert alert-primary text-center">Land</h2>
+
     <div class="row">
-        {% for member in data %}
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'images/land.png' %}" alt="Landmark Image">
-                <div class="card-body">
-                    <h5 class="card-title">{{ member.landmark }}</h5>
-                    <p class="card-text">Some quick example text related to {{ member.landmark }}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{ member.description }}</li>
-                    <li class="list-group-item">Another item</li>
-                    <li class="list-group-item">Yet another item</li>
-                </ul>
+        {% for i in member %}
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/land.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ i.id }}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary view" name="{{ i.id }}">Go somewhere</a>
             </div>
-        </div>
-        {% endfor %}
+          </div>
+     </div>
+     {% endfor %}
+     
+            
     </div>
+    <br>
+    <a href="{% url 'land_properties_show' %}" class="btn btn-primary">Show More Properties --></a>
 </div>
 {% endblock %}

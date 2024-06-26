@@ -1,12 +1,18 @@
 from django.shortcuts import render,redirect
-from .models import *
+from .models import LandResale
 
 
 def base(request):
     return render(request,'base.html')
 
+def welcome(request):
+    return render(request,"welcome.html")
+    
 def index(request):
-    return render(request,'index.html')
+    members = LandResale.objects.all()[:3]
+    context = {'member' : members}
+    return render(request,'index.html',context)
+
 
 def post_property(request):
     return render(request,'post_property.html')
@@ -32,37 +38,26 @@ def commercial_sale_form(request):
 def land_resale_form(request):
     return render(request,'land_resale_form.html')
 
-def land_create(request):
-    land_resale = LandResale(
-        plot_area=request.POST['plot_area'],
-        length=request.POST['length'], 
-        width = request.POST['width'],
-        city = request.POST['city'],
-        locality = request.POST['locality'],
-        landmark = request.POST['landmark'],
-        expected_price = request.POST['expected_price'],
-        description = request.POST['description']
-        )
-    land_resale.save()
-    return redirect('/')
+def profile(request):
+    return render(request,"profile.html")
 
-def residential_rent_create(request):
-    residential_rent = ResidentialRent(
-        bhk=request.POST['bhk'],
-        floor=request.POST['floor'],
-        totalfloor = request.POST['totalfloor'],
-        property_age = request.POST['property_age'],
-        builtup_area = request.POST['builtup_area'],
-        city = request.POST['city'],
-        locality = request.POST['locality'],
-        landmark = request.POST['landmark'],
-        rent = request.POST['rent'],
-        lease = request.POST['lease'],
-        expected_rent = request.POST['expected_rent'],
-        expected_deposit = request.POST['expected_deposit'],
-        expected_lease_amount = request.POST['expected_lease_amount'],
-        maintenance = request.POST['maintenance'],
-        description = request.POST['description']
-    )
-    residential_rent.save()
-    return redirect('/')
+def example(request):
+    return render(request,"example.html")
+
+def land_properties_view(request):
+    return render(request,"land_properties_view.html")
+
+def property_view(request):
+    return render(request,"property_view.html")
+
+def data_processing(request):
+    return render(request,"data_processing.html")
+
+
+def land_view(request, id):
+    members = LandResale.objects.get(id=id)
+    context = {'member': members}
+    return render(request, 'land_view.html', context)
+
+def plans(request):
+    return render(request,"plans.html")

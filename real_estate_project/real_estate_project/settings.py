@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-ow2x_r3^0-_&a0z^*^tl*!r+2hd+l)1am-3$-k#9+c7bs=e)c3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['joker1406.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -57,6 +57,18 @@ TEMPLATES = [
     },
 ]
 
+# Email
+
+# Email configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'SMTP.gmail.com'
+EMAIL_PORT = 587  # or another port
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'creativetechwithus@gmail.com'
+EMAIL_HOST_PASSWORD = 'rnek hyzu ijqz qsds'
+
+
+
 WSGI_APPLICATION = 'real_estate_project.wsgi.application'
 
 
@@ -66,10 +78,10 @@ WSGI_APPLICATION = 'real_estate_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'joker1406$real_estate',
-        'USER': 'joker1406',
-        'PASSWORD': 'real_estate',
-        'HOST': 'joker1406.mysql.pythonanywhere-services.com',
+        'NAME': 'real_estate',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
         'PORT': '3306', 
     }
 }
@@ -112,7 +124,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Default primary key field type

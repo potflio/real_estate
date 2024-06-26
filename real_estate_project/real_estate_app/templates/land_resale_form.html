@@ -1,30 +1,18 @@
-k{% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
 <div class="container">
     <h3 class="text-center">Land/Plot Resale</h3>
     <form class="form-inline">
         {% csrf_token %}
         <h2 class="alert alert-primary">Property Details</h2>
         <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="plot_area" class="form-label">Plot Area <span class="text-danger">*</span></label>
-                    <div class="input-group mb-3">
-                        <input type="number" class="form-control" id="plot_area" name="plot-area" placeholder="Plot Area" aria-label="Plot Area" aria-describedby="plot-area-addon" required>
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="plot-area-addon">sq.ft</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-3">
                 <div class="form-group">
-                    <label for="length" class="form-label">Length</label>
+                    <label for="length" class="form-label">Length<span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="length" name="length" placeholder="Length" aria-label="Length" aria-describedby="length-addon" required>
+                        <input type="number" class="form-control" id="length" name="length" placeholder="Length" aria-label="Length" aria-describedby="length-addon" onkeyup="calculate()" step="any" required>
                         <div class="input-group-append">
                             <span class="input-group-text" id="length-addon">ft.</span>
                         </div>
@@ -33,12 +21,48 @@ k{% extends 'base.html' %}
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <label for="width" class="form-label">Width</label>
+                    <label for="width" class="form-label">Width<span class="text-danger">*</span></label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="width" name="width" placeholder="Width" aria-label="Width" aria-describedby="width-addon" required>
+                        <input type="number" class="form-control" id="width" name="width" placeholder="Width" aria-label="Width" aria-describedby="width-addon" onkeyup="calculate()" step="any" required>
                         <div class="input-group-append">
                             <span class="input-group-text" id="width-addon">ft</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Email -->
+        <input type="email" id="email" value="prakashpandianp36@gmail.com" hidden>
+
+        
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="plot_area" class="form-label">Plot Area</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="plot_area" name="plot-area" placeholder="Plot Area" aria-label="Plot Area" aria-describedby="plot-area-addon" disabled>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="plot-area-addon">sq.ft</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="cent" class="form-label">Cent</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="cent" name="cent" placeholder="Cent" aria-label="cent" aria-describedby="cent-addon" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="acre" class="form-label">Acre</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" id="acre" name="acre" placeholder="Acre" aria-label="acre" aria-describedby="acre-addon" disabled>
                     </div>
                 </div>
             </div>
@@ -49,18 +73,31 @@ k{% extends 'base.html' %}
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="city" class="form-label">City <span class="text-danger">*</span></label>
-                    <select name="city" id="city" class="form-control">
-                        <option selected disabled>--Select--</option>
+                    <label for="district" class="form-label">District Name <span class="text-danger">*</span></label>
+                    <select name="district" id="district" class="form-control" required>
+                        <option selected disabled>--Choose--</option>
                         <option value="Thoothukudi">Thoothukudi</option>
-                        <option value="Tirunelveli">Tirunelveli</option>
                     </select>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
-                    <label for="locality" class="form-label">Locality <span class="text-danger">*</span></label>
-                    <input type="search" name="locality" id="locality" class="form-control" required>
+                    <label for="block" class="form-label">Block <span class="text-danger">*</span></label>
+                    <select name="block" id="block" class="form-control" required>
+                        <option selected disabled>--Choose--</option>
+                        <option value="ALWARTHIRUNAGARI">ALWARTHIRUNAGARI</option>
+                        <option value="KARUNGULAM">KARUNGULAM</option>
+                        <option value="KAYATHAR">KAYATHAR</option>
+                        <option value="KOVILPATTI">KOVILPATTI</option>
+                        <option value="OTTAPIDARAM">OTTAPIDARAM</option>
+                        <option value="PUDUR">PUDUR</option>
+                        <option value="SATTANKULAM">SATTANKULAM</option>
+                        <option value="SRIVAIKUNDAM">SRIVAIKUNDAM</option>
+                        <option value="THOOTHUKUDI">THOOTHUKUDI</option>
+                        <option value="TIRUCHENDUR">TIRUCHENDUR</option>
+                        <option value="UDANGUDI">UDANGUDI</option>
+                        <option value="VILATHIKULAM">VILATHIKULAM</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -79,8 +116,22 @@ k{% extends 'base.html' %}
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
-                    <label for="expected_price" class="form-label">Expected Price <span class="text-danger">*</span></label>
-                    <input type="number" name="expected_price" id="expected_price" class="form-control" placeholder="Enter expected price" required>
+                    <label for="price_per_cent" class="form-label">Price Per Cent<span class="text-danger">*</span></label>
+                    <input type="number" name="price_per_cent" id="price_per_cent" class="form-control" placeholder="Enter Price Per Cent" onkeyup="calculate()" step="any" required>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="total_price" class="form-label">Total Price </label>
+                    <input type="number" name="total_price" id="total_price" class="form-control" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="price_per_square_feet" class="form-label">Price Per Square Feet</label>
+                    <input type="text" name="price_per_square_feet" id="price_per_square_feet" class="form-control" disabled>
                 </div>
             </div>
         </div>
@@ -88,42 +139,69 @@ k{% extends 'base.html' %}
             <div class="col-12">
                 <div class="form-group">
                     <label for="description" class="form-label">Description</label>
-                    <textarea name="description" id="description" cols="30" rows="3" class="form-control" placeholder="Enter description (optional)"></textarea>
+                    <textarea name="description" id="description" cols="30" rows="3" class="form-control" placeholder="Enter description (optional)" required></textarea>
                 </div>
             </div>
         </div>
         <hr> 
         <!-- Resale Details End -->
 
-        <!-- Upload Picture Start -->
-        <h4 class="alert alert-primary">Upload Images of Your Property</h4>
-<div id="imageUploadContainer">
-    <div class="input-group mb-3">
-        <input type="file" class="form-control" name="images" multiple>
-        <label class="input-group-text" for="inputGroupFile02">Upload</label>
-    </div>
-</div>
-<button type="button" class="btn btn-success" id="addMore">Add More Images</button>
+        <!-- Property Image Upload Start -->
 
+        <h4 class="alert alert-primary">Property Images</h4>
+        <h5 class="alert alert-warning">Upload Images</h5>
         
         
-        <!-- Upload Picture Stop -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3">
+                        <!-- Hidden file input -->
+                        <input class="form-control" type="file" id="imageUpload" multiple>
+                        <!-- Custom button -->
+                     <br>
+                        <small id="imageUploadHelp" class="form-text text-muted">You can upload multiple images.</small>
+                    </div>
+                    <div id="imagePreview" class="d-flex flex-wrap"></div>
+                </div>
+            </div>
+        
+    
+        <!-- Modal for viewing images -->
+        <div class="modal fade" id="viewImageModal" tabindex="-1" aria-labelledby="viewImageModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="viewImageModalLabel">View Image</h5>
+                    </div>
+                    <div class="modal-body">
+                        <img id="modalImage" src="" class="img-fluid" alt="Image">
+                    </div>
+                </div>
+            </div>
+        </div>        <!-- Property Image Upload End -->
+<hr>
 
-        <button type="submit" id="land_create" class="btn btn-primary">Submit</button>
+        <h4 class="alert alert-primary">Contact Details</h4>
+            
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="primary_number" class="form-label">Primary Number<span class="text-danger">*</span></label>
+                        <input type="tel" name="primary_number" id="primary_number" class="form-control" placeholder="Enter Mobile Number" pattern="[0-9]{10}" required>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="secondary_number" class="form-label">Secondary Number<span class="text-danger">*</span></label>
+                        <input type="tel" name="secondary_number" id="secondary_number" class="form-control" placeholder="Enter Secondary Mobile Number" pattern="[0-9]{10}" required>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+
+        <button type="submit" id="land_create" onclick="create()" class="btn btn-primary">Submit</button>
     </form>
 </div>
 
-<script>
-    document.getElementById('addMore').addEventListener('click', function() {
-    var inputGroup = document.createElement('div');
-    inputGroup.classList.add('input-group', 'mb-3');
-    inputGroup.innerHTML = `
-        <input type="file" class="form-control" name="images" multiple>
-        <label class="input-group-text" for="inputGroupFile02">Upload</label>
-    `;
-    document.getElementById('imageUploadContainer').appendChild(inputGroup);
-});
-</script>
-<script src="{% static 'js/land_resale_form.js' %}"></script>
 {% endblock %}
 
